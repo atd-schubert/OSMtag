@@ -48,7 +48,7 @@ if (isset($gpx)&&$gpx!="") {
  <?php } ?>
 
 <?php
-if (isset($single_marker_lon)&&isset($single_marker_lat)) {
+if (isset($single_marker_lon) &&isset($single_marker_lat) && $single_marker_lon !="" && $single_marker_lat !="" ) {
 ?>
         var mlonlat = new OpenLayers.LonLat(<?php echo $single_marker_lon;?>, <?php echo $single_marker_lat;?>).transform( new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913") );
 
