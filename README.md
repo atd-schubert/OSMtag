@@ -16,9 +16,16 @@ Tag for CMS Made Simple
 
 4) custom markers sample, some parameters can be optional (icon, iconsize and iconOffset):
 ```
+    {osm w=500 h=500 clat="44.404" clon="8.683" z="12" mlon="8.6831" mlat="44.4042" mtxt="Very good you are on OpenStreetMap" gpx="/uploads/test/mygpx.gpx" markerfile="/uploads/test/mymarkers.txt"}
+```
+
+
+Here below, the markers.txt tab delimited file sample contents. Copy and paste the text from here can result in a not good file.
+
+NOTE: the marker file must be tab delimited with the right eof.
+
+```
 lat     lon     title   description     icon    iconSize        iconOffset
 44.4042 8.6831  Point 1 <b>Some text 1</b><pre>My text description extended</pre>       http://cdn.leafletjs.com/leaflet-0.4.4/images/marker-icon.png
 44.4000 8.6800  Point 2 <b>Some text 2</b><pre>My text description extended <br/>Open this area on <a href=http://www.openstreetmap.org/#map=15/44.4042/8.6831 target=_blank>Open Openstreetmap</a></pre>       http://cdn.leafletjs.com/leaflet-0.4.4/images/marker-icon.png
 ```
-
-Pay attention the marker file must be tab delimited with the right eof.
