@@ -39,12 +39,16 @@ function smarty_cms_function_osm($params, &$smarty)
 <?php
 if (isset($gpx)&&$gpx!="") {
 ?>
-        lgpx = new OpenLayers.Layer.GML("Percorso", "<?php echo($gpx);?>", {
-	    format: OpenLayers.Format.GPX,
+	var lgpx = new OpenLayers.Layer.Vector("Percorso", {
+		strategies: [new OpenLayers.Strategy.Fixed()],
+		protocol: new OpenLayers.Protocol.HTTP({
+			url: "<?php echo($gpx);?>",
+			format: new OpenLayers.Format.GPX()
+		}),
 		style: {strokeColor: "green", strokeWidth: 5, strokeOpacity: 0.5},
 		projection: new OpenLayers.Projection("EPSG:4326")
 	});
-	map.addLayer(lgpx);	
+	map.addLayer(lgpx);
  <?php } ?>
 
 <?php
