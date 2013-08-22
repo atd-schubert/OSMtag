@@ -4,14 +4,14 @@ OSMtag
 Tag for CMS Made Simple
 
 1) Download from github and save the function.osm.php file into cms plugins directory (use the cmsms file file manager)
-2) Create a page and simple put this row (please disable the WYSIWYG for the page):
+2) Create a page and simple put this row (please disable the WYSIWYG in cmsms editor for the page):
 ```
-{osm w=300 h=300 clon="8.6831" clat="44.4042" z="18" mlon="8.6831" mlat="44.4042" mtxt="Very good you are on OpenStreetMap"}
+{osm w=300 h=300 clat="44.4042" clon="8.6831" z="18" mlon="8.6831" mlat="44.4042" mtxt="Very good you are on OpenStreetMap"}
 ```
 
 You can also set on every single marker a different icon img file by setting the mimg parameter
 ```
-{osm w=300 h=300 clon="8.6831" clat="44.4042" z="18" mlon="8.6831" mlat="44.4042" mtxt="Very good you are on OpenStreetMap" mimg="http://www.openstreetmap.org/assets/images/marker-icon.png"}
+{osm w=300 h=300 clat="44.4042" clon="8.6831" z="18" mlon="8.6831" mlat="44.4042" mtxt="Very good you are on OpenStreetMap" mimg="http://www.openstreetmap.org/assets/images/marker-icon.png"}
 ```
 
 3) gpx sample (with a local gpx file...)
