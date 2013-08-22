@@ -2,7 +2,7 @@
 /*
  * OSM Plugin for CMS Made Simple
  * Author: Stefano Sabatini
- * Last rev: 21/07/2013
+ * Last rev: 22/08/2013
 */
 function smarty_cms_function_osm($params, &$smarty)
 {
@@ -18,6 +18,11 @@ function smarty_cms_function_osm($params, &$smarty)
 	$single_marker_text   = isset($params['mtxt']) ? $params['mtxt'] : "";
 
 	$gpx = isset($params['gpx']) ? $params['gpx'] : "";
+
+	$mimg = isset($params['mimg']) ? $params['mimg'] : "http://www.openstreetmap.org/assets/images/marker-icon.png";
+
+        $size   = isset($params['size']) ? $params['size'] : 13;
+        $offset = isset($params['offset']) ? $params['offset'] : 13;
 
 	$text_marker = isset($params['markerfile']) ? $params['markerfile'] : "";
 ?>
@@ -57,7 +62,12 @@ if (isset($single_marker_lon) &&isset($single_marker_lat) && $single_marker_lon 
         var mlonlat = new OpenLayers.LonLat(<?php echo $single_marker_lon;?>, <?php echo $single_marker_lat;?>).transform( new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913") );
 
         var markers = new OpenLayers.Layer.Markers( "Markers" );
+        var icon =    new OpenLayers.Icon("<?php echo $mimg;?>", new OpenLayers.Size(25,41));
+        
         map.addLayer(markers);
+
+        
+
 
 		AutoSizeFramedCloud = OpenLayers.Class(OpenLayers.Popup.FramedCloud, {
 				    'autoSize': true
@@ -72,6 +82,7 @@ if (isset($single_marker_lon) &&isset($single_marker_lat) && $single_marker_lon 
             feature.closeBox = closeBox;
             feature.popupClass = popupClass;
             feature.data.popupContentHTML = popupContentHTML;
+            feature.data.icon=icon;
             feature.data.overflow = (overflow) ? "auto" : "hidden";
                     
             var marker = feature.createMarker();
@@ -125,6 +136,7 @@ function smarty_cms_help_function_osm()
 <tr><td>clat</td><td>clon</td><td>no</td><td>Map centers at clat latitude</td></tr>
 <tr><td>mlon</td><td>mlat</td><td>yes</td><td>Longitude for a single marker</td></tr>
 <tr><td>mlat</td><td>mlon</td><td>yes</td><td>Latitude for a single marker</td></tr>
+<tr><td>mimg</td><td>mlon,mlat</td><td>yes</td><td>Marker Image a single marker</td></tr>
 <tr><td>mtxt</td><td>mlon,mlat</td><td>yes</td><td>Text for popup of a single marker</td></tr>
 <tr><td>gpx</td><td>-</td><td>yes</td><td>Url for a gpx file</td></tr>
 <tr><td>markerfile</td><td>-</td><td>yes</td><td>Url for text file containing markers with a specific syntax</td></tr>
