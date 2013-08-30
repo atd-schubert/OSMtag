@@ -153,10 +153,11 @@ function smarty_cms_about_function_osm()
 ?>
 <p style="font-size:24px">OpenStreetMap tag for CMS Made Simple</p>
 <p>Author Stefano Sabatini</p>
-<p>Version 0.1.0</p>
-<p>Last revision: 20/07/2013</p>
+<p>Version 0.1.1</p>
+<p>Last revision: 22/08/2013</p>
 <br/>
 <p style="font-weight:bold; font-size:18px">Changelog</p>
+-0.1.1 : Fix release after testing
 -0.1.0 : Fixing some things
 -0.0.2 : Gpx and text layer
 -0.0.1 : Initial release (single marker)
