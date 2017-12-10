@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/1.2.0/leaflet.css" />
+<script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+
+<div id="mapdiv" style="width: 300px; height: 200px;"></div>
+
+<script type="text/javascript">
+    var zoom=10>;
+    var lat=51;
+    var lon=7;
+
+    var osm = new L.TileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: 'Map Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'});
+    var otm = new L.TileLayer('http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: 'Map Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'});
+    var seamap = new L.TileLayer('http://t{s}.openseamap.org/seamark/{z}/{x}/{y}.png', {subdomains: '123', maxZoom: 18, attribution: 'Map Data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'});
+
+    var map = new L.Map('mapdiv', {
+        center: new L.LatLng(lat, lon),
+        zoom: zoom,
+        layers: [osm]
+    });
+
+    var baseMaps = {
+        "OSM": osm,
+        "OTM": otm
+    };
+    var overlayMaps = {
+        "OpenSeaMap": seamap,
+    };
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+</script>
